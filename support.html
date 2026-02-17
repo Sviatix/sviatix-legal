@@ -195,6 +195,14 @@
       background: rgba(255,255,255,.05);
     }
 
+    /* optional: subtle divider inside the combined card */
+    .divider{
+      height: 1px;
+      background: rgba(255,255,255,.08);
+      margin: 14px 0;
+      border-radius: 999px;
+    }
+
     @media (max-width: 520px){
       .container{ padding: 52px 18px 64px; }
       h1{ font-size: 34px; }
@@ -224,27 +232,27 @@
     </div>
 
     <div class="grid">
+      <!-- ✅ COMBINED: Contact + Feedback -->
       <div class="card">
-        <h2>Contact</h2>
+        <h2>Contact & Feedback</h2>
+
         <div class="row">
-          <p class="big">Email support</p>
+          <p class="big">Email us</p>
           <a class="email" href="mailto:support@sviatix.com">support@sviatix.com</a>
         </div>
+
+        <p class="small">
+          For feedback, just write what you noticed — what felt unclear, slow, confusing, or surprisingly good.
+        </p>
+
+        <div class="divider"></div>
+
         <div class="hint">
-          If it’s a technical issue, include your device model + iOS version.
+          For technical issues, include your device model + iOS version.
         </div>
       </div>
 
-      <div class="card">
-        <h2>Feedback</h2>
-        <p class="big" style="margin:0;">
-          If something feels unclear, slow, confusing — or surprisingly good — tell us.
-        </p>
-        <p class="small">
-          Your notes directly shape what gets built next.
-        </p>
-      </div>
-
+      <!-- Privacy stays clean + optional -->
       <div class="card">
         <h2>Privacy</h2>
         <div class="row">
