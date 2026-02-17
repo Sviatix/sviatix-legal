@@ -4,113 +4,253 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sviatix – Support</title>
+
   <style>
+    :root{
+      --bg0:#05060a;
+      --bg1:#090a12;
+      --card: rgba(255,255,255,.045);
+      --card2: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.085);
+      --text: rgba(255,255,255,.90);
+      --muted: rgba(255,255,255,.66);
+      --muted2: rgba(255,255,255,.52);
+      --orange: #FF6A00;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #0B0E14;
-      color: rgba(255, 255, 255, 0.88);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 50% -10%, rgba(255,106,0,.14), transparent 55%),
+                  radial-gradient(900px 600px at 15% 20%, rgba(255,255,255,.06), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 720px;
+    /* subtle vignette */
+    body:before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(800px 500px at 50% 20%, transparent, rgba(0,0,0,.55));
+      opacity: .55;
+    }
+
+    .container{
+      position: relative;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 60px 24px 80px;
+      padding: 64px 22px 72px;
     }
 
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
     }
 
-    h2 {
-      font-size: 18px;
-      margin-top: 40px;
-      margin-bottom: 12px;
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
       font-weight: 700;
-      color: rgba(255,255,255,0.95);
+      letter-spacing: .2px;
+      white-space: nowrap;
     }
 
-    p {
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background: var(--orange);
+      box-shadow: 0 0 0 6px rgba(255,106,0,.10);
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .lead{
+      margin: 0;
       font-size: 15px;
-      margin-bottom: 14px;
-      color: rgba(255,255,255,0.75);
+      color: var(--muted);
+      max-width: 58ch;
     }
 
-    a {
-      color: #FF6A00;
+    .grid{
+      margin-top: 26px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .card{
+      padding: 18px 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(255,255,255,.05) inset;
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+    }
+
+    .row{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .big{
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: rgba(255,255,255,.90);
+    }
+
+    .small{
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: var(--muted2);
+    }
+
+    a{
+      color: var(--orange);
       text-decoration: none;
     }
 
-    a:hover {
+    a:hover{
       text-decoration: underline;
     }
 
-    .card {
-      margin-top: 24px;
-      padding: 20px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+    .email{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 30px rgba(0,0,0,.28);
+      font-weight: 900;
     }
 
-    .footer {
-      margin-top: 60px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
+    .hint{
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.55);
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 40px 18px 60px;
-      }
+    .footer{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      font-size: 12.5px;
+      color: rgba(255,255,255,.45);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer a{
+      color: rgba(255,255,255,.62);
+    }
+
+    @media (max-width: 520px){
+      .container{ padding: 52px 18px 64px; }
+      h1{ font-size: 34px; }
+      .email{ width: 100%; justify-content: center; }
+      .top{ align-items:flex-start; }
+      .badge{ padding: 9px 11px; }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h1>Support</h1>
-    <p>
-      If you have questions, feedback, or encounter any issues while using Sviatix,
-      we’re here to help.
-    </p>
+    <div class="top">
+      <div>
+        <h1>Support</h1>
+        <p class="lead">
+          Questions, feedback, or something not working the way it should?
+          Send it. We read everything.
+        </p>
+      </div>
 
-    <div class="card">
-      <h2>Contact</h2>
-      <p>
-        Email us at:
-        <br />
-        <strong>
-          <a href="mailto:support@sviatix.com">support@sviatix.com</a>
-        </strong>
-      </p>
-      <p>
-        Please include your device model and iOS version if you’re reporting a technical issue.
-      </p>
+      <div class="badge">
+        <span class="dot"></span>
+        Sviatix Support
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Feedback</h2>
-      <p>
-        Your feedback directly shapes the evolution of Sviatix.
-        If something feels unclear, slow, confusing, or powerful —
-        tell us.
-      </p>
-    </div>
+    <div class="grid">
+      <div class="card">
+        <h2>Contact</h2>
+        <div class="row">
+          <p class="big">Email us</p>
+          <a class="email" href="mailto:support@sviatix.com">support@sviatix.com</a>
+        </div>
+        <div class="hint">
+          If it’s a technical issue, include your device model + iOS version.
+        </div>
+      </div>
 
-    <div class="card">
-      <h2>Privacy</h2>
-      <p>
-        To review how data is handled, please see our
-        <a href="/index.html">Privacy Policy</a>.
-      </p>
+      <div class="card">
+        <h2>Feedback</h2>
+        <p class="big" style="margin:0;">
+          If something feels unclear, slow, confusing — or surprisingly good — tell us.
+        </p>
+        <p class="small">
+          Your notes directly shape what gets built next.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Privacy</h2>
+        <p class="big" style="margin:0;">
+          Privacy Policy:
+          <a href="https://sviatix.github.io/sviatix-legal/">https://sviatix.github.io/sviatix-legal/</a>
+        </p>
+        <p class="small">
+          This page links to the official policy hosted on GitHub Pages.
+        </p>
+      </div>
     </div>
 
     <div class="footer">
-      © 2026 Sviatix. All rights reserved.
+      <span>© 2026 Sviatix. All rights reserved.</span>
+      <span>
+        <a href="https://sviatix.github.io/sviatix-legal/">Privacy</a>
+      </span>
     </div>
   </div>
 </body>
