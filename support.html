@@ -9,14 +9,11 @@
     :root{
       --bg0:#05060a;
       --bg1:#090a12;
-      --card: rgba(255,255,255,.045);
-      --card2: rgba(255,255,255,.06);
       --line: rgba(255,255,255,.085);
       --text: rgba(255,255,255,.90);
       --muted: rgba(255,255,255,.66);
       --muted2: rgba(255,255,255,.52);
       --orange: #FF6A00;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
       --radius: 18px;
     }
 
@@ -181,8 +178,21 @@
       flex-wrap: wrap;
     }
 
-    .footer a{
-      color: rgba(255,255,255,.62);
+    /* nicer privacy CTA (not a raw URL) */
+    .privacy-link{
+      color: rgba(255,255,255,.70);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .privacy-link:hover{
+      text-decoration: none;
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
     }
 
     @media (max-width: 520px){
@@ -191,6 +201,7 @@
       .email{ width: 100%; justify-content: center; }
       .top{ align-items:flex-start; }
       .badge{ padding: 9px 11px; }
+      .privacy-link{ width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -202,7 +213,7 @@
         <h1>Support</h1>
         <p class="lead">
           Questions, feedback, or something not working the way it should?
-          Send it. We read everything.
+          Send a message — we’ll get back as soon as we can.
         </p>
       </div>
 
@@ -216,7 +227,7 @@
       <div class="card">
         <h2>Contact</h2>
         <div class="row">
-          <p class="big">Email us</p>
+          <p class="big">Email support</p>
           <a class="email" href="mailto:support@sviatix.com">support@sviatix.com</a>
         </div>
         <div class="hint">
@@ -236,21 +247,20 @@
 
       <div class="card">
         <h2>Privacy</h2>
-        <p class="big" style="margin:0;">
-          Privacy Policy:
-          <a href="https://sviatix.github.io/sviatix-legal/">https://sviatix.github.io/sviatix-legal/</a>
-        </p>
+        <div class="row">
+          <p class="big" style="margin:0;">Privacy Policy</p>
+          <a class="privacy-link" href="https://sviatix.github.io/sviatix-legal/" target="_blank" rel="noopener">
+            Read policy
+          </a>
+        </div>
         <p class="small">
-          This page links to the official policy hosted on GitHub Pages.
+          Official policy hosted on GitHub Pages.
         </p>
       </div>
     </div>
 
     <div class="footer">
       <span>© 2026 Sviatix. All rights reserved.</span>
-      <span>
-        <a href="https://sviatix.github.io/sviatix-legal/">Privacy</a>
-      </span>
     </div>
   </div>
 </body>
